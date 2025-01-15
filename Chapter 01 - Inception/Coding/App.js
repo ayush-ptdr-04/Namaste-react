@@ -12,6 +12,9 @@
  *     </div>
  *
  */
+// Manipulate the HTML DOM using React
+
+// Create nested React Elements
 
 const heading = React.createElement(
   "div",
@@ -28,6 +31,8 @@ const heading = React.createElement(
   ]
 );
 
+// create root using createRoot
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(heading); // this render method conver heading object in h1 tag and put
+// passing react element inside root
+root.render(heading); //  render method convert heading object in h1 tag and put
