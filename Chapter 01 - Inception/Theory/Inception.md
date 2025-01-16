@@ -1,4 +1,5 @@
 1. what is emmet
+   => Emmet ek tool hai jo web development mein fast aur efficient coding ke liye use hota hai. Shortcuts ko expand karke aapka time bachaata hai.
 2. what is CDN
    => CDN ek globally distributed network hai jo content ko users tak fast aur efficiently deliver karne ke liye design kiya gaya hai.
 
@@ -40,6 +41,5 @@ Ye user ke actions ka turant reaction karta hai.
 6. What is difference between React and ReactDOM?
 => React is a JavaScript library for building User Interfaces whereas ReactDOM is also JavaScript library that allows React to interact with the DOM. The react package contains React.createElement(), React.Component, React.Children, and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The react-dom package contains ReactDOM.render(), and in react-dom/server we have server-side rendering support with ReactDOMServer.renderToString() and ReactDOMServer.renderToStaticMarkup().
 
-7. What is difference between react.development
-8. js and react.production.js files via CDN?
+7. What is difference between react.development.js and react.production.js files via CDN?
 9. What is async and defer?
