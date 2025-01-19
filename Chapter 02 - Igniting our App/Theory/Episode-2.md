@@ -29,7 +29,22 @@
 - bundlers are packages. if we want to use package in our code, we have to use "package manager"(NPM)
 - webpack, vite, parcel :- this are bundlers : web application bundler that can be used to build React applications
 
-# package-lock.json - it will tell we which exact version of the library we are using
+# package.json
+
+- Socho ye ek menu card hai.
+- Isme sirf dish ka naam (dependencies ka naam) aur unki approximate recipe (version) likhi hoti hai.
+- Example:
+  "Mujhe ek pizza chahiye (React) jo medium size ka ho (approx version)."
+  "Mujhe React chahiye, jo version 18 se upar ho."
+
+# package-lock.json
+
+- it will tell we which exact version of the library we are using
+- Ye chef ki notebook hai jo exact recipe aur ingredients ka formula likhti hai.
+- Isme dependencies ka exact version aur unke andar ki chhoti-chhoti dependencies ka bhi version hota hai.
+- Example:
+  "Pizza ka size 10 inches hai, cheese Mozzarella hai, aur sauce spicy hai (exact details)."
+  "React v18.2.0 kaunsa oil, spices aur exact steps se bana hai, wo sab yahan likha hai."
 
 # node-moduls - which gets installed is like a database for the npm.
 
@@ -43,4 +58,41 @@ NPM ke through hum package ko server se download karte hain.
 node_modules ek local folder hai jaha downloaded packages store hote hain.
 Node.js sirf ek medium hai jo package ko fetch aur manage karta hai.
 
-# NPX : execute a package
+# aapko Git repository me sirf un files ko rakhna chahiye jo aapke project ke liye zaruri aur unique hain, aur jo files aap easily dobara generate kar sakte ho, unhe Git me save nahi karna chahiye, Use .gitignore to avoid unnecessary files in Git. like: node_moduels, dist, ...-cache
+
+# Ignite our App
+
+# NPX : execute a npm package, its automatic download with NPM
+
+npx parcel index.html
+
+<!-- put CDN links in html file: is not to good way beacause we already have react and react-dom in node_modules and CDN links make our operation costely -->
+
+npm i react
+npm i react-dom
+
+now no need the CDN links
+
+# Parcel
+
+- Parcel ek modern JavaScript bundler hai jo aapke web project ke HTML, CSS, JS, images, aur other assets ko bundle karke ek optimized output banata hai. Ye zero-configuration ke saath kaam karta hai, yani aapko manually setup karne ki zarurat nahi hoti.
+- Parcel can take any type of file as an entry point, but an HTML or JavaScript file is a good place to start
+
+# Features
+
+- HMR (Hot Module Replacement) - parcel keeps track of file changes via file watcher algorithm and renders the changes in the files
+- File watcher algorithm - made with C++
+- Minification
+- Cleaning our code
+- DEV and production Build
+- Super fast building algorithm
+- Image optimization
+- Caching while development
+- Compresses
+- Compatible with older version of browser
+- HTTPS in dev
+- Port Number
+- Consistent hashing algorithm
+- Zero Configuration
+- Automatic code splitting
+- Tree shaking
