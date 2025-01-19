@@ -15,7 +15,7 @@
 // Manipulate the HTML DOM using React
 
 // Create nested React Elements
-
+// React keyword coming from CDN links
 const heading = React.createElement(
   "div",
   { id: "parent", xyz: "abc" }, // this is id and xyz attribute and this is props and child, it is inside in his parent h1
