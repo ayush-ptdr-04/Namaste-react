@@ -49,7 +49,7 @@
 # node-moduls - which gets installed is like a database for the npm.
 
 - it is contains data of dependencies.
-- node_modules folder ko generally version control (e.g., Git) me nahi add kiya jata.
+- node_modules, dist, parcel_cache folder ko generally version control (e.g., Git) me nahi add kiya jata.
 - because our package-lock.json file have sufficient information to recreate node_modulse
 - so use .gitigonre file.
 
@@ -64,7 +64,7 @@ Node.js sirf ek medium hai jo package ko fetch aur manage karta hai.
 
 # NPX : execute a npm package, its automatic download with NPM
 
-npx parcel index.html
+npx parcel index.html => ensure krna agar koii error aiee tab ki hmara entry point index.html hi hai, package.json file me object me "main": "index.html" hi ho
 
 <!-- put CDN links in html file: is not to good way beacause we already have react and react-dom in node_modules and CDN links make our operation costely -->
 
@@ -96,3 +96,38 @@ now no need the CDN links
 - Zero Configuration
 - Automatic code splitting
 - Tree shaking
+
+# production: live website, Jo users ko dikhta hai.
+
+# Dist folder
+
+- Final version or code of your project.
+- Aapke source files (HTML, CSS, JS) ko compress aur optimize karke rakhta hai jisse fast aur efficient app deliver ho.
+- Code minify kiya jata hai, jisse browser fast load kar sake.
+- Tools jaise Parcel, Webpack, ya Vite build process me dist folder banate hain.
+  src/
+  ├── app.js
+  ├── style.css
+  ├── index.html
+
+dist/
+├── app.js (optimized JS)
+├── style.css (optimized CSS)
+├── index.html (optimized HTML)
+
+- Iska code optimized hota hai aur production me deploy kiya jata hai. mtlb git se github pr nahi upload kiya jata server pr upload kiya jata hai
+- dist folder automatically ban jata hai.
+  npx parcel index.html or vite or webpack command
+
+# What is browserslist?
+
+A: Browserslist is a tool that allows specifying which browsers should be supported in your frontend app by specifying "queries" in a config file. It's used by frameworks/libraries such as React, Angular and Vue, but it's not limited to them.
+
+- Aap package.json me yeh define karte ho:
+  {
+  "browserslist": [
+  "last 2 versiond",
+  "> 1%",
+  "not dead"
+  ]
+  }
