@@ -2,7 +2,7 @@
  *
  * <div id="parent">
  *     <div id="child">
- *           <h1>i am h1 tag</h1> h1 and h2 are siblings inside the child, and this siblings for using array
+ *           <h1>i am h1 tag</h1> h1 and h2 are siblings inside the child, and this are siblings then we are using array
  *           <h2>i am h2 tag</h2>
  *     </div>
  * </div>
