@@ -4,6 +4,8 @@
   "description": "this is namaste react by AK saini",
   "main": "index.js",
   "scripts": {
+    "start": "index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
