@@ -22,3 +22,9 @@ A: Using JSX, you can write markup inside Javascript, providing you with a super
 ## Q: Role of `type` attribute in script tag? What options can I use there?
 
 A: The `type` attribute specifies the type of the script. The type attribute identifies the content between the `<script>` and `</script>` tags. It has a Default value which is “text/javascript”.
+
+# ES6 : ES6 ka full form hai ECMAScript 6. ECMAScript JavaScript ko standardize karne ke liye banaya gaya tha, aur ES6 iska 6th version hai jo 2015 mein publish hua tha.
+
+Parcel ek build tool hai jo React components ko readable format me convert karta hai, taki browser unhe samajh sake. React ke components aur JavaScript code ko ES6+ syntax me likha jata hai, jo kuch purane browsers directly samajh nahi sakte.
+
+Parcel is code ko transpile aur bundle karta hai using Babel, jo ES6+ code ko ES5 me convert kar deta hai (jo zyada tar browsers samajh sakte hain).

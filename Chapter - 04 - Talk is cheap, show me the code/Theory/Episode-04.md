@@ -19,7 +19,9 @@
     - contact
  -->
 
-# Props :
+# Props : A: props stands for properties. Props are arguments passed into React components. props are used in React to pass data from one component to another (from a parent component to a child component(s)). They are useful when you want the flow of data in your app to be dynamic.
+
+<RestaurantCard key={restaurant.data.id} resData={restaurant} />
 
 - it is make component dynamic or flexible
 - pass the data, one component to another component like: passing arguments to the function
@@ -36,3 +38,15 @@ Form validations ka badhna
 Dropdown options ka badalna
 Ya design changes karna.
 In sab ke liye Config Driven UI ek efficient solution provide karta hai.
+
+# key
+
+A: A key is a special attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted. In other words, we can say that keys are unique Identifier used to give an identity to the elements in the lists. Keys should be given to the elements within the array to give the elements a stable identity.
+
+# index as keys in React?
+
+A: Yes, we can use the index as keys, but it is not considered as a good practice to use them because if the order of items may change. This can negatively impact performance and may cause issues with component state. Keys are taken from each object which is being rendered. There might be a possibility that if we modify the incoming data react may render them in unusual order.
+
+{resList.map((restauran, index) => (
+<RestaurantCard key={index} resData={restaurant} />
+))}
