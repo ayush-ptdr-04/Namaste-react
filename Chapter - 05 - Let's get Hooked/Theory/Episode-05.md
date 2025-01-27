@@ -28,6 +28,8 @@ export default MyComponent;
 
 <!--  using for making dynamicn app -->
 
+# state: components ka internal data jo components ke behavior ko control krta hai, isse hum data ko track krte hai aur jab state update hoti hai toh UI automatically re-render hota hai
+
 # React Hooks: Hooks React ke andar simple JavaScript functions hote hain jo stateful logic ko handle karte hain.
 
 - whenever a state variable update , react will re-renders the component
@@ -40,6 +42,9 @@ export default MyComponent;
 
 import React, { useState } from "react";
 const [count, setCount] = useState(0);
+count: is current(initial) value of the state
+setCount: is update the count
+useState(0): initial value (useSatate return exact two values current state and update a diffrent valu(setState))
 
 # Actual DOM: Browser ka original Document Object Model (DOM) jo HTML structure ko represent karta hai.
 
