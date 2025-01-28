@@ -43,7 +43,7 @@ export default MyComponent;
 import React, { useState } from "react";
 const [count, setCount] = useState(0);
 count: is current(initial) value of the state
-setCount: is update the count
+setCount: is update the count setCount(...)
 useState(0): initial value (useSatate return exact two values current state and update a diffrent valu(setState))
 
 # Actual DOM: Browser ka original Document Object Model (DOM) jo HTML structure ko represent karta hai.
