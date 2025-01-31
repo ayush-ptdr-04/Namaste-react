@@ -83,7 +83,7 @@ useState(0): initial value (useSatate return exact two values current state and 
 - Pichla completed work dobara use kar sakta hai, aur unnecessary work ko abort kar sakta hai.
 - React tasks ko chhote chunks me todta hai, jo efficiently handle kiye jate hain.
 
-# react is faster how:- React is doing efficient DOM manipulation, beacuse it has a virtual DOM
+# react is faster how:- React is doing efficient DOM manipulation, beacuse it has a virtual DOM , react fiber(new Reconciliation algorithm) find diffrence b/w two virtualDOM and updated the only changed portion
 
 # How React Works Behind the Scenes
 
