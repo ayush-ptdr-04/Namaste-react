@@ -1,13 +1,14 @@
-- npm init
-- npm i -D parcel
-- npm i react
-- npm i react-dom
-- npx parcel index.html
-- Add in package.json:- "browserslist": [
-  "last 2 version"
-  ]
-- "scripts": {
-  "start": "parcel index.html" // start index.html ko access kr rha hai
-  "build": "parcel build index.html",
-  "test": "jest"
-  },
+# - npm init
+# - npm i -D parcel
+# - npm i react
+# - npm i react-dom
+# - npx parcel index.html
+# - Add in package.json:- "browserslist": [
+#   "last 2 version"
+#   ]
+# - "scripts": {
+#   "start": "parcel index.html" // start index.html ko access kr rha hai
+#   "build": "parcel build index.html",
+#   "test": "jest"
+#   },
+# - npm i react-router-dom (for routing)
