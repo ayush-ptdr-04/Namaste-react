@@ -29,6 +29,8 @@ Case:- 3. - When the dependency array contains a condition, the callback functio
 
 # Routing: Routing ko simple words mein samjhaun, toh yeh ek tarika hai jisse hum decide karte hain ki konsa content (ya page) kis URL par display hoga. Jaise agar aap kisi website par jaate hain aur Home, About, ya Contact page par click karte hain, toh routing hi decide karti hai ki aapko konsa page dikhaya jaye.
 
+# npm i react-router-dom
+
 - Routing in Web Development:
 - Client-Side Routing: Ye frontend (browser) mein hota hai. Jaise React, Angular, ya Vue.js mein.
   Example: Agar aap /about par jaate hain, toh page reload nahi hota, bas content change hota hai.
@@ -57,3 +59,75 @@ Yani createBrowserRouter se jo router bana hai, usko React ke andar enable karne
     <RouterProvider router={appRouter} />
   );
 }; -->
+
+# import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+
+1️⃣ createBrowserRouter([])
+
+- Ye ek router create karta hai jo browser ke URL ko handle karta hai.
+- Isme ek array of objects hota hai jisme routes (pages) define ki jati hain.
+- Har route ka path (URL) aur component (page ka UI) hota hai.
+- Agar user kisi path par jata hai, to uska corresponding component render hota hai.
+
+```js
+const appRouter = createBrowserRouter([
+  {
+    path: "/", // Home Page ka path
+    element: <AppLayout />, // Is path par ye component dikhega
+    children: [
+      { path: "/", element: <Body /> }, // Home page ka content
+      { path: "/about", element: <About /> }, // About page ka content
+      { path: "/contact", element: <Contact /> }, // Contact page ka content
+    ],
+    errorElement: <Error />, // Agar koi galat URL enter kare to Error Page dikhe
+  },
+]);
+```
+
+2️⃣ RouterProvider
+
+- Ye React ke andar routing ko activate karta hai.
+- Jo router create kiya hai (appRouter), usko RouterProvider ke andar pass karte hain.
+- Isse application ke andar routing ka system enable ho jata hai.
+
+```js
+root.render(<RouterProvider router={appRouter} />);
+```
+
+3️⃣ Outlet
+
+- Ye children routes ko parent component ke andar dikhane ka kaam karta hai.
+- Jab AppLayout parent component hai, aur Body, About, Contact child components hain, to Outlet waha par child component ko dikhata hai.
+- Jab user "/about" par jata hai, to About component Outlet ke andar render ho jata hai.
+
+```js
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header /> {/* Yeh hamesha dikhega */}
+      <Outlet /> {/* Yeh change hoga based on URL */}
+    </div>
+  );
+};
+```
+
+🔹 createBrowserRouter → Sare pages (routes) ko define karta hai.
+🔹 RouterProvider → React me routing enable karta hai.
+🔹 Outlet → Jo bhi page active hai, use render karta hai.
+
+# Tow types of routing
+
+A: - In Server-side routing or rendering (SSR), every change in URL, http request is made to server to fetch the webpage, and replace the current webpage with the older one.
+
+- In Client-side routing or rendering (CSR), during the first load, the webapp is loaded from server to client, after which whenever there is a change in URL, the router library navigates the user to the new page without sending any request to backend. All Single Page Applications uses client-side routing.
+
+# whenever using map() always use a key
+
+        ```js
+        <ul>
+        {itemCards.map((item) => {
+          <li key={item.id}>{item.action.text}</li>;
+        })}
+      </ul> ```
+
+# mene restaurnat-Menu-itmes-card ke liye API lecture ko dekh kr usme se copy ki hai same to same
