@@ -121,13 +121,16 @@ A: - In Server-side routing or rendering (SSR), every change in URL, http reques
 
 - In Client-side routing or rendering (CSR), during the first load, the webapp is loaded from server to client, after which whenever there is a change in URL, the router library navigates the user to the new page without sending any request to backend. All Single Page Applications uses client-side routing.
 
+# hook: useRouteError for custmize error
+
 # whenever using map() always use a key
 
         ```js
         <ul>
         {itemCards.map((item) => {
-          <li key={item.id}>{item.action.text}</li>;
+          <li key={item.id}>{item.action.text}</li>
         })}
-      </ul> ```
+      </ul>
+      ```
 
-# mene restaurnat-Menu-itmes-card ke liye API lecture ko dekh kr usme se copy ki hai same to same
+# mene restaurnat-Menu-itmes-card ke liye API lecture-7 ko dekh kr usme se copy ki hai same to same
