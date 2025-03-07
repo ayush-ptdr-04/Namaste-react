@@ -1,0 +1,1 @@
+# Namaste React - Episode 09 (Optimizing our App) , Episode 09 me hum React App optimization ke baare me seekhte hain, jisme mainly lazy loading, Suspense, code splitting jaise concepts cover hote hain. Yeh sab milke React app ko fast aur efficient banane me madad karte hain. Chaliye in concepts ko ek-ek karke simple way me samajhte hain! 😃
