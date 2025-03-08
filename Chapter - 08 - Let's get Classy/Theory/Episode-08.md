@@ -165,7 +165,7 @@ Jab component first time load hota hai tab ye lifecycle methods chalte hain:
 
 1. `constructor()` → **Sabse pehle chalta hai**, yahan **state initialize** hoti hai.
 2. `render()` → **UI return karta hai**.
-3. `componentDidMount()` → **Component DOM me load hone ke baad chalta hai**, yahan **API calls** ya **subscriptions** set kiye ja sakte hain.
+3. `componentDidMount()` → **Component DOM me load hone ke baad chalta hai**, yahan **API calls** ya **state** set kiye ja sakte hain.
 
 #### **Example:**
 
@@ -201,7 +201,7 @@ export default UserClass;
 
 Jab **state ya props change** hoti hain tab ye lifecycle methods chalte hain:
 
-1. `render()` → **UI dobara update hota hai**.
+1. `re-render()` → **UI dobara update hota hai**.
 2. `componentDidUpdate()` → **Component update hone ke baad chalta hai**.
 
 #### **Example:**
@@ -335,3 +335,17 @@ useEffect(() => {
 - React **fast performance** ke liye **render phase aur commit phase** use karta hai.
 
 Yeh improved notes ab aur zyada clear aur structured hain! 🚀
+
+```js
+const About = () => {
+  return (
+    <div>
+      <h1>About page</h1>
+      <h2>this is namaste react</h2>
+      <User name={"aayush(funcn-compnt)"} />
+      <UserClass name={"aayush(class-cmpnt)"} location={"Library"} />
+    </div>
+  );
+};
+//Function(Component): about is parent component and user component inside the aboout component, so when we load component on webpage, it goes line by line, and see as soon as user component then user component start loading, and both component show on the webpage at the same time
+```
