@@ -110,7 +110,7 @@ Then Commit-phase Happens  <DOM-UPDATED> <HTML>
 
 # useEffect() is first load the component hai and after fetching the API render the component with put the data, react dont wait for return the component
 
-# react is fast bcoz it has two phases: 1st is render_phase and 2nd on is comitt_phase
+# react is fast bcoz it has two phases: 1st is render_phase and 2nd on is comitt_phase, and it is SPA just changing components only
 
 # componentDidMount() is a React lifecycle method that runs after the component is added to the DOM (webpage).
 
@@ -176,6 +176,9 @@ class UserClass extends React.Component {
     console.log("Parent Constructor Called");
     this.state = { count: 0 };
   }
+  // - <constructor(props) >→ Ye props ko receive karta hai.
+  // - <super(props)> → Ye React ke parent Component class ko props bhejne ke liye zaroori hai.
+  // - <this.props> → Constructor ke andar aur render method me this.props ka use karke hum props ko access kar sakte hain.
 
   componentDidMount() {
     console.log("Parent Component Did Mount");
@@ -348,4 +351,81 @@ const About = () => {
   );
 };
 //Function(Component): about is parent component and user component inside the aboout component, so when we load component on webpage, it goes line by line, and see as soon as user component then user component start loading, and both component show on the webpage at the same time
+
+#About.js
+
+import React from "react";
+import User from "./User";
+import UserClass from "./UserClass";
+
+class About extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log("parent constructor");
+  }
+
+  componentDidMount() {
+    console.log("parent componentDidMouunt");
+  }
+
+  render() {
+    console.log("parent render");
+    return (
+      <div>
+        <h1>About component</h1>
+        <h2>this is namaste react</h2>
+        <User name={"aayush(funcn-compnt)"} />
+        <UserClass name={"First-aayush(class-cmpnt)"} location={"Library"} />
+        <UserClass name={"Second-aayush(class-cmpnt)"} location={"Library"} />
+      </div>
+    );
+  }
+}
+export default About;
+
+# UserClass.js
+
+import React from "react";
+
+class UserClass extends React.Component {
+  constructor(props) {
+    super(props);
+    // console.log(props);
+
+    //this.state is big object, it contains all state variables
+    this.state = {
+      count: 1, //intial state
+      count2: 2,
+    };
+    console.log(this.props.name + " constructor");
+  }
+
+  async componentDidMount() {
+     console.log(this.props.name + " componentDidMount");
+    //API calls
+
+  }
+
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
+    this.setState({ count2: this.state.count2 + 2 });
+  };
+  render() {
+    //we can extract this things
+    const { name, location } = this.props;
+    const { count, count2 } = this.state;
+    console.log(this.props.name + " render");
+    return (
+      <div className="user-card">
+        <h1>Count : {count}</h1>
+        <h1>Count : {count2}</h1>
+        <button onClick={this.increment}>Increment</button>
+        <h2>i am {name}</h2>
+        <h3>currently in {location}</h3>
+      </div>
+    );
+  }
+}
+
+export default UserClass;
 ```
