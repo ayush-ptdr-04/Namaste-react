@@ -3,6 +3,7 @@
 - HOC is a function that takes Component as a input and return a component as a output
 - HOC is a pure function because they do not change the existing behavior of the input component
   Higher-Order Component (HOC) ek **function hai jo ek component leta hai aur ek naya component return karta hai.** Yeh mainly **code reuse aur component logic ko wrap** karne ke liye use hota hai.
+- **HOC ka use readability, reusability aur scalability improve karta hai.** 🚀
 
 ---
 
@@ -47,6 +48,11 @@ export const withPromotedLabel = (RestaurantCard) => {
 const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 ```
 
+- Jab RestaurantCardPromoted call hota hai:
+  <RestaurantCardPromoted resData={restaurant} />
+- Yeh withPromotedLabel ke andar chala jata hai.
+- withPromotedLabel kya karta hai? Ek wrapper component return karta hai jo "Promoted" label ke saath original RestaurantCard ko wrap kar deta hai.
+
 Aur jab restaurant promoted hoga toh **yeh component use hoga:**
 
 ```js
@@ -89,7 +95,3 @@ Agar restaurant **promoted nahi hai**, toh **bina label ke dikhega.**
 ✔️ **Code Reusability** – Ek hi baar likhne ke baad kahi bhi use kar sakte ho.  
 ✔️ **Separation of Concerns** – `RestaurantCard` ka logic alag hai aur `Promoted Label` ka logic HOC handle kar raha hai.  
 ✔️ **Scalability** – Agar aur bhi labels ya features add karne ho toh sirf HOC me modify karna hoga, alag-alag components me nahi.
-
-✅ **HOC ek function hai jo ek component ko modify karke ek naya component return karta hai.**  
-✅ **Is case me, yeh `RestaurantCard` ke upar "Promoted" label add kar raha hai.**  
-✅ **HOC ka use readability, reusability aur scalability improve karta hai.** 🚀
