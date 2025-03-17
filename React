@@ -12,3 +12,6 @@
 #   "test": "jest"
 #   },
 # - npm i react-router-dom (for routing)
+
+# React dev tool and cors origin is chrom extensions
+# tailwindincelence is a vs extantion
