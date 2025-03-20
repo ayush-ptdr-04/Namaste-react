@@ -205,4 +205,10 @@ export default <ItemCardList />;
 
 - Agar parent ko child ke state ka control chahiye, toh state ko parent me rakho aur function pass karke state update karo!
 
-# Props-Drilling: Props Drilling ka matlab hai jab ek component ko data (props) kisi dusre component tak pahunchane ke liye beech ke multiple components se pass karna padta hai, chahe unhe us data ki zaroorat ho ya na ho.
+# Props-Drilling: Props Drilling ka matlab hai jab ek component ko data (props) kisi dusre component tak pahunchane ke liye beech ke multiple components se pass karna padta hai, chahe unhe us data ki zaroorat ho ya na ho. tab hume isse avoid krna hai or react-context ka use krna hai
+
+# react-context:
+
+# in class-based-component we dont use hooks
+
+# Create and provide the context
