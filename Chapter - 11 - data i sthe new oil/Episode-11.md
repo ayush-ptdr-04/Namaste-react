@@ -207,8 +207,76 @@ export default <ItemCardList />;
 
 # Props-Drilling: Props Drilling ka matlab hai jab ek component ko data (props) kisi dusre component tak pahunchane ke liye beech ke multiple components se pass karna padta hai, chahe unhe us data ki zaroorat ho ya na ho. tab hume isse avoid krna hai or react-context ka use krna hai
 
-# react-context:
+# react-context: it is a method to pass props form parent to child components, by storing the props in store(similar in redux) and using this props form the store by child components without actually passing them manualy at each level of the component tree.
 
-# in class-based-component we dont use hooks
+- using redux to interact with states from parent to child components is not only quite difficult to understand but also gives you more complex code.
+- jab component tree me do ya usse zyada levels ho (matlab deeply nested components ho), toh props drilling aur lifting the state karna complex aur messy ho jata hai.
+  🔹 Solution: Aise cases me store (React Context, Redux, Zustand, etc.) ka use karna better hota hai, kyunki ye global state management provide karta hai.
+
+# in class-based-component we dont use hooks: so it's recieve the data to the the help of react context is deffrent syntax through the Consumer
 
 # Create and provide the context
+
+```js
+// create UserContext.js in utils
+import { createContext } from "react";
+
+const UserContext = createContext({
+  loggedInUser: "Default User",
+});
+export default UserContext;
+
+// use in Header.js and many more components
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
+const Header = () => {
+  const { loggedInUser } = useContext(UserContext);
+  return <li className="px-4 font-bold">{loggedInUser}</li>;
+};
+
+// Provide data to parent component App.js
+import UserContext from "./utils/UserContext";
+const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "aayush patidar",
+    };
+    setUserName(data.name);
+  }, []);
+
+  return (
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
+  );
+};
+
+// Recieve data in Body.js
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
+const Body = () => {
+  const { loggedInUser, setUserName } = useContext(UserContext);
+  return (
+    <div className="search m-4 p-4 flex items-center">
+      <label>User :- </label>
+      <input
+        value={loggedInUser}
+        className="border border-black"
+        onChange={(e) => setUserName(e.target.value)}
+      />
+    </div>
+  );
+};
+1️⃣ UserContext.Provider provides loggedInUser and setUserName to all child components.
+2️⃣ Header.js displays the username.
+3️⃣ Body.js lets user update the username, and it automatically updates Header.js.
+```
+
+✔ Bina props pass kiye deeply nested components me bhi data mil gaya
+✔ Code clean & maintainable ho gaya
+✔ Props drilling ka issue solve ho gaya
