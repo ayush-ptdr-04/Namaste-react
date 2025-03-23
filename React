@@ -13,5 +13,14 @@
 #   },
 # - npm i react-router-dom (for routing)
 
-# React dev tool and cors origin is chrom extensions
+# React dev tool and cors origin and REduxDev tools is chrom extensions
 # tailwindincelence is a vs extantion
+
+Redux-ToolKit
+# install @reduxjs/toolkit and react-redux
+# Build Our store
+# connnect our store to app
+# Slice(cart Slice) crete
+# dispatch action
+# Selector
+
