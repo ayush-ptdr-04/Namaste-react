@@ -10,7 +10,7 @@
 - Redux Toolkit Redux ka modern aur optimized version hai, jo complex state management ko easy, fast, aur scalable banata hai.
 - Redux store is very big JS Object , wich has a lot of data in it, store in a global central space
 
-# Explain Dispatcher.
+- Explain Dispatcher.
 
 - Explain Reducer.
 - Explain Slice.
@@ -40,7 +40,10 @@
 
 - npm install @reduxjs/toolkit react-redux
 
-# create configurre the store
+1. # create configurre the store
+   ● Redux store ko create karna - configureStore() ka use karke.
+   ● Slices (Reducers) ko combine karna - Jitne bhi slices (cartSlice.js, userSlice.js etc.) honge, unko store me add karega.
+   ● React app ko Provider ke through store ka access dena.
 
 ```js
 // Redux ka configureStore() function use karke ek store banate hain.
@@ -55,7 +58,7 @@ const appStore = configureStore({});
 export default appStore;
 ```
 
-# Provider the store to the application
+2. # Provider the store to the application
 
 ```js
 // Provider component use karte hain jo react-redux se aata hai.
@@ -83,7 +86,7 @@ const AppLayout = () => {
 };
 ```
 
-# create a SLice : it is return an object which has following properties: *name, *IntialState, \*Reducer()
+3. # create a SLice : it is return an object which has following properties: *name, *IntialState, \*Reducer()
 
 ● The initialState is the state which a slice has in the beginning before it gets modified.
 ● Reducers have actions and these actions have callback functions
@@ -112,7 +115,80 @@ const cartSlice = createSlice({
     },
   },
 });
+
+export const { addItem, removeItem, clearCart } = cartSlice.actions;
+
+export default cartSlice.reducer;
 ```
+
+4. # Subscribing to the store
+   ● We can subscribe to the store using a selector to read the data of the store.
+   ● Redux offers a hook named useSelector which can be used to subscribe to the store.
+   ● This useSelector gives us access to the store where we can find the cart.items
+   ● The items of the cart will be stored in cartItems which we can use in our component
+   ● If there is a change in any of those state variables, then it will re-render the cart component as well.
+
+```js
+import { useSelector } from "react-redux";
+
+const Header = () => {
+  // Suscribing to the store using a selector
+  const cartItems = useSelector((store) => store.cart.items);
+  return <li className="px-4 font-bold">Cart - ({cartItems.length} Items)</li>;
+};
+```
+
+5. # Dispatch an action
+   ● React-redux offers a hook to dispatch an action i.e. useDispatch.argument i.e. payload (apple).
+   ● When an action is dispatched, an object is created. This objecj This hook returns a function i.e. dispatch().
+   ● The dispatch() function takes an argument i.e. addItem action.
+
+```js
+import { useDispatch } from "react-redux";
+
+const ItemList = ({ items }) => {
+  // console.log(dummy);
+
+  const dispatch = useDispatch();
+
+  const handelAddItem = (item) => {
+    // Dispatch an action
+    dispatch(addItem(item));
+  };
+
+  return (
+    <div className="w-3/12 p-4">
+      <div className="absolute">
+        <button
+          className="p-1 m-0.5 mx-16  rounded-lg bg-black text-white shadow-lg  "
+          onClick={() => handelAddItem(item)}>
+          Add +
+        </button>
+      </div>
+    </div>
+  );
+};
+```
+
+✅ Redux store ek "state container" hai jo data ko hold karta hai.
+✅ Jab dispatch(addItem()) call hota hai, Redux state change ho jati hai.
+✅ Redux automatically connected components ko re-render karta hai.
+✅ useSelector() Redux store se data fetch karta hai.
+✅ useDispatch() Redux store me data update karta hai.
+
+🔹 1. onClick={handleAddItem}
+a. This syntax assigns the handleAddItem function directly to
+the onClick event.
+b. When the button is clicked, the handleAddItem function will
+be called without any arguments.
+
+🔹 2. onClick={() => handleAddItem(item)}
+a. This syntax uses an arrow function to call handleAddItem
+with the item argument
+
+🔹 3. onClick={handleAddItem(item)}
+a. This syntax is incorrect and will not work as expected.
+b. Button click hone ka intezar nahi karega, turant call ho jayega!
 
 ## References:
 
