@@ -190,6 +190,38 @@ with the item argument
 a. This syntax is incorrect and will not work as expected.
 b. Button click hone ka intezar nahi karega, turant call ho jayega!
 
+Immer.js Kya Hai? 🛠️
+Immer.js ek library hai jo Redux Toolkit ke andar use hoti hai, jo immutable state management ko easy bana deti hai.
+
+🔹 Purane Redux me: State mutate nahi kar sakte the, hamesha copy create karke return karna padta tha.
+🔹 Immer.js ke saath: Direct state mutate kar sakte hain, copy aur return karne ki zarurat nahi (Redux internally handle karta hai via Immer.js). Redux automatically copy bana leta hai return kr deta hai.
+
+```js
+Example (Redux without Immer.js)
+
+function reducer(state, action) {
+  return { ...state, count: state.count + 1 }; // Manual copy
+}
+------------------------------------------------
+Example (Redux Toolkit + Immer.js)
+
+const counterSlice = createSlice({
+  name: "counter",
+  initialState: { count: 0 },
+  reducers: {
+    increment: (state) => {
+      state.count += 1; // Directly mutate, but Immer.js makes a copy internally
+    },
+  },
+});
+```
+
+- Redux DevTools Chrome Extension 🔥
+- Redux DevTools ek Chrome extension hai jo Redux store ko debug karne ke liye use hoti hai. Isse hum Redux state changes ko dekh sakte hain, actions track kar sakte hain aur time-travel debugging bhi kar sakte hain.
+
+- RTK Query - Redux Toolkit ka Advanced Data Fetching Solution 🚀
+- RTK Query ek Redux Toolkit ka feature hai jo API calls ko manage karne ke liye use hota hai. Ye data fetching, caching, auto re-fetching aur performance optimization karta hai. 🔥
+
 ## References:
 
 - [Redux](https://redux.js.org/)
