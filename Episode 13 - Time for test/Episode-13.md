@@ -25,6 +25,9 @@
 - Configure parcel Configur file to disable default babel transpilation
 - Jest Configuration : npx jest --init
 - Install jest-environment-jsdom : npm install -D jest-environment-jsdom
+- Install @babel/preset-react : npm install -D @babel/preset-react (@babel/preset-react is helping to convert JSX into HTML.)
+- include @babel/preset-react babel Config
+- install testing-library/jest-dom : npm install -D @testing-library/jest-dom
 
 ● React Testing Library (RTL) ek testing utility hai jo React components ko test karne ke liye use hoti hai. Ye real user behavior ko simulate karke check karti hai ki tumhara UI sahi kaam kar raha hai ya nahi.
 ● React Testing Library Jest uses behind the scenes
@@ -97,6 +100,29 @@ export const sum = (a, b) => {
 3. sum.spec.js
 4. sum.spec.ts
 
+● Then we can run our command npm run test to test the component. When we do that, we will get the below any error: This error says that we can not use JSX inside our test case. JSX isn’t enabled for our test cases. The error also says that to make the JSX work, we have to add @babel/preset-react
+
+● Install @babel/preset-react : npm install -D @babel/preset-react
+Include @babel/preset-react inside babel config file.
+
+```js
+module.exports = {
+  presets: [
+    ["@babel/preset-env", { targets: { node: "current" } }], // Jest ke liye
+    ["@babel/preset-react", { runtime: "automatic" }], // React JSX ke liye
+  ],
+};
+```
+
+● Why do we need to add this in the config file ? : @babel/preset-react is helping to convert JSX into HTML.
+Now when we run npm run test, we will get another error.
+The error says that toBeInTheDocument() is not a function. This happened because we have to install one more library i.e. : @testing-library/jest-dom
+
+● Install @testing-library/jest-dom : npm install -D @testing-library/jest-dom
+We need to import this library in our test file. : import "@testing-library/jest-dom";
+
+- Now when we run the command <npm run test>, this time our test cases will be passed.
+
 ```js /src/__test__/sum.test.js
 import { sum } from "../sum"; //● Import the sum() function from sum.js.
 // ● We use the test() function to write test cases.
@@ -111,3 +137,57 @@ test("Sum function should calculate the two numbers", () => {
   expect(result).toBe(8);
 });
 ```
+
+# Grouping of test cases : ● We can group all the test cases in a file using the describe() function
+
+```js
+describe("test case for sum component", () => {
+  test("", () => {});
+  test("", () => {});
+  test("", () => {});
+});
+```
+
+Note: We can also change the name of function test() to it(). They both work the same way. it() is like an alias of test()
+Note: Add the /coverage folder to .gitignore. This folder contains the data about how many files it has covered while testing.
+
+```js
+test("should render component with cart item", () => {
+  render(
+    <BrowserRouter>
+      <Provider store={appStore}>
+        <Header />
+      </Provider>
+    </BrowserRouter>
+  );
+
+  const cartItems = screen.getByText(/Cart/);
+  expect(cartItems).toBeInTheDocument();
+});
+```
+
+Yeh test **React Testing Library** aur **Jest** ka use karke check karta hai ki **"Cart" text render ho raha hai ya nahi.**
+
+1️⃣ **`render(...)`**
+
+- Yeh function **React component ko test environment me render** karta hai.
+- `BrowserRouter` wrap kiya gaya hai taaki routing sahi se kaam kare.
+- `Provider` use kiya gaya hai **Redux store provide karne ke liye.**
+
+2️⃣ **`screen.getByText(/Cart/)`**
+
+- Yeh function page se **"Cart" text dhundh raha hai** (case-insensitive).
+- **Regex (`/Cart/`)** ka use kiya gaya hai taaki exact match na bhi ho tab bhi kaam kare.
+
+3️⃣ **`expect(cartItems).toBeInTheDocument();`**
+
+- Yeh check karega ki **"Cart" text present hai ya nahi.**
+- Agar **Cart nahi mila** toh test **fail** ho jayega.
+
+### **🎯 Purpose of This Test**
+
+✅ Ensure karega ki **Header component sahi se render ho raha hai.**  
+✅ Check karega ki **Redux store se data aaya ya nahi.**  
+✅ **Routing issues detect** karne me madad karega.
+
+Yeh **unit test** ensure karta hai ki **Cart item dikh raha hai** ya nahi. Yeh React applications me **UI testing** ka ek important part hai jo **bugs pakadne me madad karta hai.** 🚀

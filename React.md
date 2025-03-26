@@ -33,6 +33,7 @@
 - configure Parcel configure file to disable default babel transpilation
 - JEST configuration
 - install jest-environment jsdom librarie
+- Install @babel/preset-react
 
 ### **CORS Error - Simple Explanation** 🚀
 
