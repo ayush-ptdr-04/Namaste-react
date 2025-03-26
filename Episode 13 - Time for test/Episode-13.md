@@ -77,3 +77,37 @@ Answer a few questions for initializing Jest
 5. Automatically clear mock calls, instances, contexts and results before every test? -> Yes
 
 ● Install jest-environment-jsdom : npm install -D jest-environment-jsdom
+
+# Basics of Testing : Test a function which returns the sum of 2 numbers
+
+● Create a file named sum.test.js
+
+```js sum.js
+export const sum = (a, b) => {
+  return a + b;
+};
+```
+
+# Approach 1: Create a folder named( \_\_tests\_\_). Jest will track all the files from this folder and execute the test cases. Jest will consider all the files in this folder as test files. {src/ ke andar **tests** folder banao.}
+
+# Approach 2: Suppose we have a file sum.js. If the name of the file in which you have written test cases matches any of the below filenames, then it will be considered as a test file.
+
+1. sum.test.js
+2. sum.test.ts
+3. sum.spec.js
+4. sum.spec.ts
+
+```js /src/__test__/sum.test.js
+import { sum } from "../sum"; //● Import the sum() function from sum.js.
+// ● We use the test() function to write test cases.
+
+// The test() function has 2 argument:
+// ○ Description of the test case
+// ○ A callback function which tests the function
+test("Sum function should calculate the two numbers", () => {
+  const result = sum(4, 4);
+
+  // Assertion:  iska use isliye hota hai taaki check kiya ja sake ki output expected result ke barabar hai ya nahi. hai to test case pass
+  expect(result).toBe(8);
+});
+```
