@@ -191,3 +191,38 @@ Yeh test **React Testing Library** aur **Jest** ka use karke check karta hai ki 
 ✅ **Routing issues detect** karne me madad karega.
 
 Yeh **unit test** ensure karta hai ki **Cart item dikh raha hai** ya nahi. Yeh React applications me **UI testing** ka ek important part hai jo **bugs pakadne me madad karta hai.** 🚀
+
+# Testing a component which takes props = search.test.js, Header.test.js
+
+# Integration Testing :● Consider that we have <Body> component which has a Search boxand Seach button
+
+● When we run the npm run test command, it gives an error: fetch is not defined.
+● Hence this super power of browser i.e. fetch() does not exist on JSDOM. So we have to create a mock function the same way we created the mock data.
+
+# Note: A test case does not make an actual API call. Because we do not run it on the browser, so it does not have power to talk to the world
+
+● So we will have to create the mock function the same way the actual fetch() function works.
+
+# act → Async updates ko handle karne ke liye.
+
+Note: Currently, we have to run the npm run test command again and again after creating test cases. To solve that issue, we can add a new command in the package.json file inside our scripts.
+
+=> “watch-test”: “jest –watch”
+
+And instead of using npm run test command, we can use <npm run watch-test>.
+
+# act → Async updates ko handle karne ke liye. : Whenever we are using fetch() inside the test case, we should always wrap our render() inside act() function
+
+● We will import the act from react-dom/test-utils.
+● Then we will make the callback function of it() function async.
+● Then we will use the await keyword before act().
+● Inside the act() function, we will pass an async callback function which will render the <Body> component.
+
+# Test case for Body component => <search.test.js>
+
+# Helper functions :
+
+1. beforeAll() - This function will be called before running all the test cases.
+2. afterAll() - This function will be called after running all the test cases.
+3. beforeEach() - This function will be called before running every single test case.
+4. afterEach() - This function will be called after running every single test case
