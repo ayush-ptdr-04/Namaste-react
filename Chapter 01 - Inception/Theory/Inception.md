@@ -36,10 +36,12 @@ Ye user ke actions ka turant reaction karta hai.
 
 -> Iska main purpose dusre domains ke resources ko securely share karna hota hai.
 
+```js
 <script crossorigin="anonymous|use-credentials">
 ```
+
 6. What is difference between React and ReactDOM?
-=> React is a JavaScript library for building User Interfaces whereas ReactDOM is also JavaScript library that allows React to interact with the DOM. The react package contains React.createElement(), React.Component, React.Children, and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The react-dom package contains ReactDOM.render(), and in react-dom/server we have server-side rendering support with ReactDOMServer.renderToString() and ReactDOMServer.renderToStaticMarkup().
+   => React is a JavaScript library for building User Interfaces whereas ReactDOM is also JavaScript library that allows React to interact with the DOM. The react package contains React.createElement(), React.Component, React.Children, and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The react-dom package contains ReactDOM.render(), and in react-dom/server we have server-side rendering support with ReactDOMServer.renderToString() and ReactDOMServer.renderToStaticMarkup().
 
 7. What is difference between react.development.js and react.production.js files via CDN?
-9. What is async and defer?
+8. What is async and defer?
