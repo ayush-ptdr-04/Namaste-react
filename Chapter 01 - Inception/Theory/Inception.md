@@ -43,5 +43,51 @@ Ye user ke actions ka turant reaction karta hai.
 6. What is difference between React and ReactDOM?
    => React is a JavaScript library for building User Interfaces whereas ReactDOM is also JavaScript library that allows React to interact with the DOM. The react package contains React.createElement(), React.Component, React.Children, and other helpers related to elements and component classes. You can think of these as the isomorphic or universal helpers that you need to build components. The react-dom package contains ReactDOM.render(), and in react-dom/server we have server-side rendering support with ReactDOMServer.renderToString() and ReactDOMServer.renderToStaticMarkup().
 
-7. What is difference between react.development.js and react.production.js files via CDN?
-8. What is async and defer?
+### ✅ **Q7. Difference between `react.development.js` and `react.production.js` via CDN**
+
+| Feature               | `react.development.js`                        | `react.production.js`               |
+| --------------------- | --------------------------------------------- | ----------------------------------- |
+| 1. **Purpose**        | For development/testing                       | For production/live websites        |
+| 2. **File Size**      | Large (with extra code for warnings)          | Small (minified and optimized)      |
+| 3. **Debugging**      | Helps with debugging (shows console warnings) | No warnings shown (for performance) |
+| 4. **Speed**          | Slower                                        | Faster                              |
+| 5. **Error Checking** | Includes helpful error messages               | Error messages are removed          |
+
+📌 **Example CDN:**
+
+```html
+<!-- Development -->
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+<!-- Production -->
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+```
+
+---
+
+### ✅ **Q8. What is `async` and `defer` in HTML script tag?**
+
+| Property | Meaning                                                        | When is the script executed?        | Use Case                        |
+| -------- | -------------------------------------------------------------- | ----------------------------------- | ------------------------------- |
+| `async`  | Script loads asynchronously                                    | As soon as it's downloaded          | Third-party scripts (e.g., ads) |
+| `defer`  | Script loads in background and runs after HTML is fully parsed | After the HTML is completely parsed | DOM-manipulating scripts        |
+
+📝 **Example:**
+
+```html
+<script src="script.js" async></script>
+<script src="script.js" defer></script>
+```
+
+- Both `async` and `defer` **prevent blocking** of HTML parsing.
+- Use `defer` when script depends on DOM elements.
+- Use `async` for **independent** scripts (e.g., analytics).
+
+- emmet
+- CDN
+- library and framework
+- React
+- reactDOM
+- CORS
+- production.js and devlopment.js
+- async and defeer
