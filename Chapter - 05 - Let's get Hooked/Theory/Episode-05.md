@@ -102,3 +102,11 @@ React ke peeche ka pura magic uska Virtual DOM, Reconciliation process, aur comp
   Sirf changed nodes ko update karke React fast aur efficient banata hai.
 - React ka data flow parent to child hota hai (props ke through), State aur props ke saath component re-renders hote hain jab data change hota hai.
 - React ke peeche ka engine Fiber hai, jo tasks ko priority ke basis par handle karta hai, Yeh complex UIs ko smoothly render karne me madad karta hai.
+
+- import and export
+- state
+- Hooks
+- Actual Dom
+- vertual Dom
+- Reconsiliation
+- React-Fiber
