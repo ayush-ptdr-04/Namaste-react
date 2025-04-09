@@ -131,3 +131,15 @@ A: Browserslist is a tool that allows specifying which browsers should be suppor
   "not dead"
   ]
   }
+
+- npm
+- package.json
+- package-lock.json
+- Dependecies
+- devDependencies
+- Bundlers
+- node_modules
+- npx
+- parcel
+- Dist Folder
+- BrowserList
