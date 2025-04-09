@@ -28,3 +28,8 @@ A: The `type` attribute specifies the type of the script. The type attribute ide
 Parcel ek build tool hai jo React components ko readable format me convert karta hai, taki browser unhe samajh sake. React ke components aur JavaScript code ko ES6+ syntax me likha jata hai, jo kuch purane browsers directly samajh nahi sakte.
 
 Parcel is code ko transpile aur bundle karta hai using Babel, jo ES6+ code ko ES5 me convert kar deta hai (jo zyada tar browsers samajh sakte hain).
+
+- Script
+- JSX
+- type attribute
+- ES6
