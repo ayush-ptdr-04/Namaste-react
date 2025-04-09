@@ -50,3 +50,8 @@ A: Yes, we can use the index as keys, but it is not considered as a good practic
 {resList.map((restauran, index) => (
 <RestaurantCard key={index} resData={restaurant} />
 ))}
+
+- props
+- Config Driven UI
+- Key
+- Index as key
