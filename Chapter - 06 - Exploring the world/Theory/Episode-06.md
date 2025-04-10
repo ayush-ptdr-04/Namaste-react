@@ -152,3 +152,12 @@ console.log(sum); // Output: 10
 "build": "parcel build index.html",
 "test": "jest"
 },
+
+- monolith
+- microservices
+- Approaches of react
+- useEffect hook
+- CORS
+- optional chaining
+- Shimmer UI
+- map filter and reduce
