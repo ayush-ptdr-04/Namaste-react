@@ -170,3 +170,13 @@ export default MyComponent;
 - **Unmounting:** `componentWillUnmount()`
 
 ---
+
+- class-based-components
+- super(props)
+- constructor
+- react-life-cycle-method
+- mounting phase -> constructor -> render -> componentDidMount
+- updating phase -> render -> componentDidUpdat
+- unMounting Phase -> componentWillUnMount
+- renderPhase and commitPhase
+- useEffect and componentDidMount

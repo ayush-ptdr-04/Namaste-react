@@ -143,3 +143,8 @@ function App() {
 - **Lazy Loading har jagah use mat karo, sirf bade aur rarely used components ke liye hi use karo.**
 
 Agar **React 18 aur Next.js me use karna hai toh** batana, uske liye **`React Server Components` aur `Suspense for Data Fetching`** ka concept bhi samjha sakta hoon! 🚀
+
+- SPR
+- lazy
+- suspense
+- startTransition
