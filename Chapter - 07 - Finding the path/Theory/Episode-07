@@ -134,3 +134,13 @@ A: - In Server-side routing or rendering (SSR), every change in URL, http reques
       ```
 
 # mene restaurnat-Menu-itmes-card ke liye API lecture-7 ko dekh kr usme se copy ki hai same to same
+
+- useState()
+- useEffect((),[])
+- Routing
+- react-router-dom
+- creatBrowserRouter
+- routerProvider
+- useRouteError
+- Outlet
+- SSR and CSR
