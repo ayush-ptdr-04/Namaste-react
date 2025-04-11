@@ -226,3 +226,27 @@ const counterSlice = createSlice({
 
 - [Redux](https://redux.js.org/)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
+
+Step.1 - Redux Toolkit Install
+Step.2 - Store banaya
+Step.3 - Provider se store ko root component me wrap kiya
+Step.4 - Slice banayi (with reducers)
+Step.5 - Store me slice import ki
+➡️ Jab kisi component me store ka data chahiye, subscribe karte hain using useSelector()
+➡️ Jab kisi component se data change karna ho, wahan dispatch karte hain.
+
+Read data from store -> useSelector() -> Jahan state chahiye
+Send action to store -> useDispatch() -> Jahan event trigger ho raha ho (button click, etc.)
+
+User Action (Button Click)
+↓
+dispatch(addItem(item))
+↓
+Reducer (in Slice) runs
+↓
+Redux Store Updated
+↓
+Component with useSelector() gets new data and re-renders
+
+🧠 Interview Tip Bolne ke liye:
+"Redux follows a one-way data flow. We dispatch an action, which is handled by a reducer. The reducer updates the central store, and subscribed components automatically receive the updated state."
