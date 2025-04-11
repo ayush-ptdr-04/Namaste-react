@@ -280,3 +280,10 @@ const Body = () => {
 ✔ Bina props pass kiye deeply nested components me bhi data mil gaya
 ✔ Code clean & maintainable ho gaya
 ✔ Props drilling ka issue solve ho gaya
+
+- HOC
+- Controlled
+- UnControlled
+- Liftting-state-up
+- props-Drilling
+- react-context : userContext, Provider
