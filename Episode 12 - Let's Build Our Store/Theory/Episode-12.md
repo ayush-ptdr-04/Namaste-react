@@ -38,7 +38,8 @@
 ✅ Jab ek component selector ka use karta hai, toh uska store se "Subscription" ho jata hai.
 ✅ Agar store me data change hota hai, toh wo component automatically update ho jata hai.
 
-- npm install @reduxjs/toolkit react-redux
+- npm install @reduxjs/toolkit
+- npm install react-redux
 
 1. # create configurre the store
    ● Redux store ko create karna - configureStore() ka use karke.
