@@ -10,13 +10,12 @@
 - npm i react-router-dom
 - Login Form
 - SignIn/SignUp Form
-- from calidation
+- from validation
 - useRef hook
 - firebase setup
 - create project on google-firebase for authentication
 
-  - web<> => add firebase on your web-App : {🔹 Apni website ko Firebase se connect karna.
-    Taaki tum Firebase ke features (jaise hosting, database, auth, etc.) use kar sako.}
+  - web<> => add firebase on your web-App : {🔹 Apni website ko Firebase se connect karna, Taaki tum Firebase ke features (jaise hosting, database, auth, etc.) use kar sako.}
     - npm i firebase
   - authentication => select sign-in method { <incognito mode hona chahiye tab hi email/password enable ho payega>}
 
@@ -45,6 +44,9 @@
   - provide appStore using <Provider store={appStore}/> to the root component
 - onAuthStateChanged use on the root component and also use dispatch, it is dispatch the action and pass the auth data, { ✅ Real-time user state track karne ke liye, Jab bhi user SignIn, SignUp ya SignOut karta hai, ya app start hote hi agar user already login hai, to onAuthStateChanged trigger hoga .}
   - useNavigate():[signIn, signUp or LogOut hone pr user konse url pr navigate hoga] in child component because routerProvider on the root level
+- browse page :
+  - add signOut Api and navigate on the URL's and useSelector() use for fetch user data to the store
+  - add updateProfile API and use useDispatch() for update new userData in the store
 
 # Features
 
@@ -76,4 +78,12 @@
 // Jab user login karta hai Firebase ke through, to uska data Redux store me daal do:
 dispatch(setUser({ name, email, uid }));
 // Ab is data ko tum kahin bhi app me use kar sakte ho bina Firebase se dobara fetch kare.
+```
+
+```js
+useEffect(() => {
+  onAuthStateChanged(auth, (user) => {});
+});
+// onAuthStateChanged(...) ye Firebase ka event listener hai.
+// Ye listener lag jaata hai ek baar, fir jab bhi:- user login kare, user logout kare, page refresh ho, token expire/renew ho, to ye onAuthStateChanged automatically trigger hota rahega.
 ```
