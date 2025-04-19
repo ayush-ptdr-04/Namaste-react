@@ -32,6 +32,8 @@
     });
     >
   - Deploy command : "firebase deploy"
+  - npm run build
+  - firebase deploy
 
 - deploying our app to production
 - create sign up user account using createUserWithEmailAndPassword and signInWithEmailAndPassword
@@ -43,10 +45,13 @@
   - creat slice.js using createSlice
   - provide appStore using <Provider store={appStore}/> to the root component
 - onAuthStateChanged use on the root component and also use dispatch, it is dispatch the action and pass the auth data, { ✅ Real-time user state track karne ke liye, Jab bhi user SignIn, SignUp ya SignOut karta hai, ya app start hote hi agar user already login hai, to onAuthStateChanged trigger hoga .}
-  - useNavigate():[signIn, signUp or LogOut hone pr user konse url pr navigate hoga] in child component because routerProvider on the root level
+  - useNavigate():[signIn, signUp or LogOut hone pr user konse url pr navigate hoga] in child component because routerProvider on the root level,
+  - React Router ke navigate() function ya useNavigate() sirf Router ke context ke andar hi kaam karte hain, uske bahar nahi.
 - browse page :
   - add signOut Api and navigate on the URL's and useSelector() use for fetch user data to the store
   - add updateProfile API and use useDispatch() for update new userData in the store
+- bugFix: signUp user displayame and profile picture update
+- bugFix: if the user is not loggedIn and He/She try to manualy change the path and go to browse page, so our app redirect to loggedIn path and, same for after loggedIn He/She try to manualy change the path and go to loggedIn so our app redirect to browse page{ move useNavigate() parent to children, inside routerProvider()}
 
 # Features
 
@@ -87,3 +92,8 @@ useEffect(() => {
 // onAuthStateChanged(...) ye Firebase ka event listener hai.
 // Ye listener lag jaata hai ek baar, fir jab bhi:- user login kare, user logout kare, page refresh ho, token expire/renew ho, to ye onAuthStateChanged automatically trigger hota rahega.
 ```
+
+- navigate(): React Router ke navigate() function ya useNavigate() sirf Router ke context ke andar hi kaam karte hain, uske bahar nahi.
+  navigate("/") ko yeh nahi pata ki / pr kaunsa component lagega.
+  Usse bas path pata hai.
+  Kaunsa component us path pr render hoga, wo Route ke through define hota hai.
