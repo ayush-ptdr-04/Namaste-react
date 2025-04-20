@@ -52,6 +52,11 @@
   - add updateProfile API and use useDispatch() for update new userData in the store
 - bugFix: signUp user displayame and profile picture update
 - bugFix: if the user is not loggedIn and He/She try to manualy change the path and go to browse page, so our app redirect to loggedIn path and, same for after loggedIn He/She try to manualy change the path and go to loggedIn so our app redirect to browse page{ move useNavigate() parent to children, inside routerProvider()}
+- unSubscribed to the onAuthStateChanged callBack
+- Add hardCoded data to constant file
+- unsubscribe to the onAuthStateChanged callback
+- Register TMDB API & create an app & get acces token
+- get data from TMDB now playing movies list API
 
 # Features
 
@@ -97,3 +102,9 @@ useEffect(() => {
   navigate("/") ko yeh nahi pata ki / pr kaunsa component lagega.
   Usse bas path pata hai.
   Kaunsa component us path pr render hoga, wo Route ke through define hota hai.
+
+- unsubscribe(): Jab tu onAuthStateChanged() lagata hai, wo Firebase me listener laga deta hai, Ab tu jab component unmount karega (ya page band karega), to tu chahata hai ki wo listener remove ho jaye, Isi liye onAuthStateChanged() ek function return karta hai — jisko commonly hum unsubscribe naam dete hain, Ye unsubscribe() function us listener ko hata deta hai, memory leak se bachata hai.
+
+- TMDB: TMDB ka full form hota hai The Movie Database. Yeh ek free and open-source movie API hai jiska use developers karte hain movies, TV shows, actors, posters, ratings, aur trailers ki information lene ke liye.
+  - register then create app token individualy app netflixGPT.
+  - and method or tokenAPI ko constant me rakha and browse page to fetch API
