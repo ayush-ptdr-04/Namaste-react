@@ -56,7 +56,28 @@
 - Add hardCoded data to constant file
 - unsubscribe to the onAuthStateChanged callback
 - Register TMDB API & create an app & get acces token
-- get data from TMDB now playing movies list API
+- get data from TMDB Now Playing API movies list API
+- create custom hook useNowPlyaingMovies for clean code and browse file
+<!--
+<Header/>
+- Main Container
+
+  - VideoBackground
+  - VideoTitle&Discription
+
+- SecondaryContainer
+
+  - MoviesList \* n
+  - card \* n
+    -->
+
+- create all Components and use useSelector() for frtching data to the store.movies.nowPlayingMovies
+- add data in VideoTitle and
+- fetch data for VideoBackgroud to videos API and filter trailer
+  const trailer = json.results.filter((video) => video.type === "Trailer");
+  - if no type === "Trailer" availabel then we extract any video clip to json.results
+    const trailer = filterData.length == 0 ? json.results[0] : filterData[0];
+    and extract trailer.key put in any yt video link and embed code of that video link
 
 # Features
 
@@ -108,3 +129,49 @@ useEffect(() => {
 - TMDB: TMDB ka full form hota hai The Movie Database. Yeh ek free and open-source movie API hai jiska use developers karte hain movies, TV shows, actors, posters, ratings, aur trailers ki information lene ke liye.
   - register then create app token individualy app netflixGPT.
   - and method or tokenAPI ko constant me rakha and browse page to fetch API
+
+inside jsx alway use camelCasing
+
+- pahle tmdb se playing movies ki API se sari movies nikali fir main movie ke usme se ek movie selsct ki uski id nikali or iss movie ka trailer nikalne ke liye videos API me Id daali fir clips , tease or trailer ki list se ek trailer video nikala, fir uss trailer video me se key nikali or yt video link me put ki or waha se embed code nikala
+
+---
+
+### ✅ **Step-by-Step Process:**
+
+1. **Get Now Playing Movies:**
+
+   - API: `https://api.themoviedb.org/3/movie/now_playing`
+   - Response me `results` array milega → usme se movies milengi.
+
+2. **Select One Movie:**
+
+   - `const movieId = results[0].id;` (ya koi bhi movie tu select kare)
+
+3. **Use That `movieId` to Get Videos:**
+
+   ```js
+   const res = await fetch(
+     `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
+     API_OPTIONS
+   );
+   const data = await res.json();
+   ```
+
+4. **Filter Trailer:**
+
+   ```js
+   const trailer = data.results.find(
+     (video) => video.type === "Trailer" && video.site === "YouTube"
+   );
+   ```
+
+5. **Get YouTube Video Key:**
+
+   ```js
+   const videoKey = trailer?.key;
+   ```
+
+6. **Generate YouTube Embed Link:**
+   ```js
+   const embedUrl = `https://www.youtube.com/embed/${videoKey}`;
+   ```
