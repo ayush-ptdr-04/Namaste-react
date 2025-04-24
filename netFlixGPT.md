@@ -58,6 +58,8 @@
 - Register TMDB API & create an app & get acces token
 - get data from TMDB Now Playing API movies list API
 - create custom hook useNowPlyaingMovies for clean code and browse file
+- make trailer video autoplay and mute
+- add tailwind on the browse page && trailer video , main container
 <!--
 <Header/>
 - Main Container
@@ -71,7 +73,7 @@
   - card \* n
     -->
 
-- create all Components and use useSelector() for frtching data to the store.movies.nowPlayingMovies
+- create all Components and use useSelector() for fetching data to the store.movies.nowPlayingMovies
 - add data in VideoTitle and
 - fetch data for VideoBackgroud to videos API and filter trailer
   const trailer = json.results.filter((video) => video.type === "Trailer");
@@ -132,7 +134,7 @@ useEffect(() => {
 
 inside jsx alway use camelCasing
 
-- pahle tmdb se playing movies ki API se sari movies nikali fir main movie ke usme se ek movie selsct ki uski id nikali or iss movie ka trailer nikalne ke liye videos API me Id daali fir clips , tease or trailer ki list se ek trailer video nikala, fir uss trailer video me se key nikali or yt video link me put ki or waha se embed code nikala
+- pahle tmdb se playing movies ki API se sari movies nikali fir main movie ke usme se ek movie selsct ki uski id nikali or iss movie ka trailer nikalne ke liye videos API me Id daali fir clips , teaser or trailer ki list se ek trailer video nikala, fir uss trailer video me se key nikali or yt video link me put ki or waha se embed code nikala
 
 ---
 
