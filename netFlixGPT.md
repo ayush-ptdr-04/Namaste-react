@@ -58,8 +58,10 @@
 - Register TMDB API & create an app & get acces token
 - get data from TMDB Now Playing API movies list API
 - create custom hook useNowPlyaingMovies for clean code and browse file
-- make trailer video autoplay and mute
-- add tailwind on the browse page && trailer video , main container
+- create movieSlice
+- update store with movie data
+
+- planning
 <!--
 <Header/>
 - Main Container
@@ -79,7 +81,19 @@
   const trailer = json.results.filter((video) => video.type === "Trailer");
   - if no type === "Trailer" availabel then we extract any video clip to json.results
     const trailer = filterData.length == 0 ? json.results[0] : filterData[0];
-    and extract trailer.key put in any yt video link and embed code of that video link
+    and extract trailer.key put in any yt video link and embed yt video of that video link
+- create movieTrailer custom hook
+- create slice addTrailerVideo and update store
+- embed use "?autoplay=1&mute=1" in <ifram>, for autoplay the video and add some styling in main container trailerVideo
+- add tailwind on the browse page && trailer video , main container to look awesome
+
+- Secondary Container
+<!-- Movies list = Popular
+      moviesList * n
+    MoviesList - now playing
+    MoviesList - Trending
+    MoviesList - horror
+   -->
 
 # Features
 
