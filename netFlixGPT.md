@@ -88,16 +88,31 @@
 - add tailwind on the browse page && trailer video , main container to look awesome
 
 - Secondary Container
-<!-- Movies list = Popular
-      moviesList * n
-    MoviesList - now playing
-    MoviesList - Trending
-    MoviesList - horror
-   -->
+  <!-- Movies list = Popular
+        moviesList * n
+      MoviesList - now playing
+      MoviesList - Trending
+      MoviesList - horror
+     -->
+
+  - create components for mainTrailer, card, listOfCard, secondaryContainer
+  - fetch data of nowPlayingMovies to the store and pass in ListContainer ans it's apply map function and it is pass key and poster_path in card and it's use imageURL + poster_path
+  - and same as, creat hooks for Trending, Upcoming, popular movies for fetch data to seprate individual API and creat reducer fun. for add data in store and use useSelectore() in secondary container, hota hai.Poster banane ke liye API se poster_path milta hai aur usse ek image URL ke sath jod diya jaata hai.
+
+- build GPT Search feature
+- GPT Search Page
+- GPT Search Bar
+- (BONUS)- Multi-Language Feature in our APP
+- creat Individual slices for toggel button(Gpt Search) and language change and store
+- add Supported_lang in constant and create languageConstants for diffrent languages
+- dispatch actions to header for toggelBtn and changeLanguag
+- fetch data from store in header for toggelButton
+- fetch data from store in searchBar for changeLang
 
 # Features
 
 - You can use [Formik library] for create forms
+- transformation hindi, english, japanies languages
 
 # Hook useRef()
 
@@ -191,3 +206,14 @@ inside jsx alway use camelCasing
    ```js
    const embedUrl = `https://www.youtube.com/embed/${videoKey}`;
    ```
+
+- Secondary Container
+- API se data hooks ke through fetch hota hai.
+- Redux store mein data dispatch hota hai.
+- useSelector se data components tak aata hai.
+- MovieList banake cards render kiye jaate hain.
+
+- Har category (jaise Trending, Popular, etc.) ke liye custom hook banaye jaate hain.Ye hooks API se data fetch karke Redux store mein dispatch karte hain.Example: useNowPlayingMovies, useTrendingMovies, etc.
+- Redux store se data access karne ke liye useSelector hook use hota hai.Har category ka data SecondaryContainer me laaya jaata hai.
+- SecondaryContainer mein har category ke liye ek MovieList component banaya jaata hai.MovieList ke andar map() function ka use karke har movie ke liye ek MovieCard render kiya jaata hai.
+- MovieCard mein movie ka poster image show
