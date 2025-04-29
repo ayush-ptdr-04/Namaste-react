@@ -109,6 +109,12 @@
 - fetch data from store in header for toggelButton
 - fetch data from store in searchBar for changeLang
 
+- build movie suggesting component
+  - creat opneAi account -> get oepnAi secret key -> save in constant file -> go on npm open ai and install -> fetch data to api + secret key, give query to the side of user -> So, get current Value to input(searchBar) using useRef() hook -> and creat query using currentValue , put in api for data fetching and <finally i got movies based on user searching>
+  - that Gptmovies send to TMDB Search Movie API in the form of [array]
+  - search TMDB API database for each movie using split -> map then Promise.all()
+  - creat newReducer in gpt slice for storing movieName and GptMovies
+
 # Features
 
 - You can use [Formik library] for create forms

@@ -197,3 +197,8 @@ Tu 90% ready hai bhai! 🔥
 Bas thoda wording improve kar le, real-world example yaad kar le – **tera confidence skyrocket karega!**
 
 Agar tu chaahe toh main ek aur **mock round with Swiggy-project-based questions** bhi le sakta hoon. Bol de!
+
+- User browser mein /signup jaata hai → React Router page dikhata hai.
+- User form submit karta hai → POST /api/signup call hota hai (Node.js backend handle karta hai).
+- Backend user ko database mein store karta hai aur response deta hai.
+- React us response ke basis pe UI update karta hai.
