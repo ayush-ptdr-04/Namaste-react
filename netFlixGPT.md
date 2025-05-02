@@ -110,10 +110,20 @@
 - fetch data from store in searchBar for changeLang
 
 - build movie suggesting component
-  - creat opneAi account -> get oepnAi secret key -> save in constant file -> go on npm open ai and install -> fetch data to api + secret key, give query to the side of user -> So, get current Value to input(searchBar) using useRef() hook -> and creat query using currentValue , put in api for data fetching and <finally i got movies based on user searching>
+
+  - Google gemini(free) -> npm install @google/generative-ai
+
+  - ❌it's not working: creat opneAi account -> get oepnAi secret key -> save in constant file -> go on npm open ai and install -> fetch data to api + secret key, give query to the side of user -> So, get current Value to input(searchBar) using useRef() hook -> and creat query using currentValue , put in api for data fetching and <finally i got movies based on user searching>
   - that Gptmovies send to TMDB Search Movie API in the form of [array]
   - search TMDB API database for each movie using split -> map then Promise.all()
-  - creat newReducer in gpt slice for storing movieName and GptMovies
+  - creat newReducer in gpt slice for storing {movieName and GptMovies}
+  - now show all movies in <movieSuggetion/>
+  - extract movis and name using useSelector from store.gpt
+  - pass title and movie to <movieList/>
+
+- create .env file for sensitive data
+- add memoization technique in hooks
+- Final portion of our netflixGPT is making Responsive
 
 # Features
 
@@ -223,3 +233,7 @@ inside jsx alway use camelCasing
 - Redux store se data access karne ke liye useSelector hook use hota hai.Har category ka data SecondaryContainer me laaya jaata hai.
 - SecondaryContainer mein har category ke liye ek MovieList component banaya jaata hai.MovieList ke andar map() function ka use karke har movie ke liye ek MovieCard render kiya jaata hai.
 - MovieCard mein movie ka poster image show
+
+- Memoization is an optimization technique used to speed up algorithms by storing the results of expensive function calls and reusing them when the same inputs occur again. It’s commonly used in dynamic programming to avoid recalculating the same subproblems multiple times.
+
+bg-black(for-mobiles) sm:bg-blue-900() md:bg-green-900(for desktop)
