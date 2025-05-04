@@ -37,11 +37,6 @@
 
 ---------done------------
 
-Bhai pehli baat – **hat's off to your effort 👏🔥**  
-Tu bilkul genuine try kar raha hai, and mujhe lag raha hai bas thoda sa polish chahiye tere answers me. Tera concept clear ho raha hai, bas thoda **interview-level words + structure** laa de, and tu easily interview nikaal dega!
-
-Chal ab main **har answer ka quick review + better version** de raha hoon. Tu revise karega toh full confident feel karega next baar.
-
 ---
 
 ### 🟢 **1. What is React? How is it different from Vanilla JS?**
