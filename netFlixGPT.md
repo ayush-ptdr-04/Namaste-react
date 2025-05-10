@@ -237,3 +237,13 @@ inside jsx alway use camelCasing
 - Memoization is an optimization technique used to speed up algorithms by storing the results of expensive function calls and reusing them when the same inputs occur again. It’s commonly used in dynamic programming to avoid recalculating the same subproblems multiple times.
 
 - bg-black(for-mobiles) sm:bg-blue-900() md:bg-green-900(for desktop)
+
+```js
+- react icons setup
+npm install react-icons
+import {
+  FaTachometerAlt,
+ ............
+} from "react-icons/fa";
+and use <FaTachometerAlt/>
+```
